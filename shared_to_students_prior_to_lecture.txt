@@ -1,0 +1,25 @@
+mean_iq <- 100
+std_iq <- 15
+
+
+samples = rnorm(10, mean_iq, std_iq)
+hist(samples)
+print(mean(samples))#Computing the mean from the sample and printing it
+print(sd(samples))#same for standard deviation
+
+t.test(rnorm(10, mean_iq, std_iq),rnorm(10, mean_iq, std_iq))
+
+n_rep = 100 
+max_n_per_group = 100
+alpha = 0.05 # Significance threshold
+vector_p_values = NULL
+for (n_i in 2:max_n_per_group){#CHANGED
+    p_val_for_n_i = NULL
+    for (i in 1:n_rep){
+        grp1 = rnorm(n_i, mean_iq, std_iq)
+        grp2 = rnorm(n_i, mean_iq-std_iq, std_iq)
+        p_val_for_n_i[i] <- ifelse(t.test(grp1,grp2)$p.value < alpha, 1, 0)
+        }
+    vector_p_values[n_i] <- mean(p_val_for_n_i)
+}
+plot(1:max_n_per_group, vector_p_values, xlab='n_per_group', ylab='prop p < alpha')
