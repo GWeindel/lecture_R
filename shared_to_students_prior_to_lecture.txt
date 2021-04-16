@@ -23,3 +23,11 @@ for (n_i in 2:max_n_per_group){#CHANGED
     vector_p_values[n_i] <- mean(p_val_for_n_i)
 }
 plot(1:max_n_per_group, vector_p_values, xlab='n_per_group', ylab='prop p < alpha')
+
+prepocessed_df = df[!is.na(df$rt) & df$rt>200,]
+
+ind_means = aggregate(rt~participant*condition , data=prepocessed_df , mean)
+grand_means = aggregate(rt ~ condition, data=ind_means, mean)
+
+barplot(rt ~ condition, data=grand_means, ylab='RT (ms)',
+   xlab="SAT condition",  col=c("red","blue"))
