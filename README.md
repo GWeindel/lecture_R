@@ -1,6 +1,6 @@
 # lecture_R
 
-This is an introduction (really short, 4 hours lecture) for psychology doctoral students at Aix Marseille University. It aims at giving a first contact with the R language to students and a pre-requisite to another course.
+This is an introduction (really short, 4 hours lecture) for psychology doctoral students at Aix Marseille University. It aims at giving a first contact with the R language to students and is a pre-requisite to another course.
 
 
 # Instructions on the installation
