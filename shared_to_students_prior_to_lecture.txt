@@ -24,6 +24,15 @@ for (n_i in 2:max_n_per_group){#CHANGED
 }
 plot(1:max_n_per_group, vector_p_values, xlab='n_per_group', ylab='prop p < alpha')
 
+library(curl)#library shipped with R-recommended install, used to download from URL
+
+download.file("https://raw.githubusercontent.com/GWeindel/DecomposingRT/master/Raw_data/markers/MRK_SAT_M2.csv", destfile = "test.csv", method = "curl")#Downloading to test.csv
+
+df = read.csv2("test.csv",sep=",")
+df = df[c("participant","contraste","condition","rt")]
+
+df$rt = as.numeric(df$rt)
+
 prepocessed_df = df[!is.na(df$rt) & df$rt>200,]
 
 ind_means = aggregate(rt~participant*condition , data=prepocessed_df , mean)
