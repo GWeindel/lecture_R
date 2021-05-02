@@ -4,12 +4,8 @@ This is an introduction (really short, 4 hours lecture) for psychology doctoral 
 
 
 # Instructions on the installation
-To create the lectures and material I use a conda environment on a linux machine (x64 - ubuntu 16.04)
+To create the lectures and material I use a conda environment on a linux machine (x64 - ubuntu 16.04).
 
-### Start by installing a dedicated cond env :
-- conda create -n r_env r-essentials r-base
-- conda activate r_env
-- conda install -c conda-forge rise
+You can directly recreate the conda environment with the "environment.yml" file (see https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-from-an-environment-yml-file ) 
 
-### then launch jupyter notebook and proceed with the .ipynb
-
+Then launch jupyter notebook and proceed with the .ipynb
